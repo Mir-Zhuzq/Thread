@@ -3,3 +3,4 @@ F:\2016-2017-master1\Thread\AppThreadDemo\AppThreadDemo\bin\Debug\AppThreadDemo.
 F:\2016-2017-master1\Thread\AppThreadDemo\AppThreadDemo\bin\Debug\AppThreadDemo.pdb
 F:\2016-2017-master1\Thread\AppThreadDemo\AppThreadDemo\obj\Debug\AppThreadDemo.exe
 F:\2016-2017-master1\Thread\AppThreadDemo\AppThreadDemo\obj\Debug\AppThreadDemo.pdb
+F:\2016-2017-master1\Thread\AppThreadDemo\AppThreadDemo\obj\Debug\AppThreadDemo.csprojResolveAssemblyReference.cache

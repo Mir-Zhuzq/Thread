@@ -24,8 +24,9 @@ namespace AppThreadDemo
             }
             finally
             {
-                Console.WriteLine("threadMethod执行结束");
+                Console.WriteLine("threadMethod执行finally块");
             }
+            Console.WriteLine("threadMethod执行结束");
             
         }
 
@@ -38,6 +39,8 @@ namespace AppThreadDemo
 
             //生成线程实例
             Thread thread = new Thread(entry);
+            Thread thread2 = new Thread(entry);
+
 
             //终止线程
             //Console.WriteLine("终止线程");
@@ -45,16 +48,26 @@ namespace AppThreadDemo
 
 
             //启动线程
-            Console.WriteLine("启动线程");
+            Console.WriteLine("\n启动第一个线程");
             thread.Start();
 
             //主线程休眠0.5秒，等待子线程运行
             //这里等待0.5s子线程最后打印结束的代码没有时间执行，如果延长等待的时间，两个线程的结束信息均可以打印
             Thread.Sleep(500);
 
+            thread.Abort();
+            //等待线程结束
+            thread.Join();
+
+            Console.WriteLine("\n启动第二个线程");
+            thread2.Start();
+            Thread.Sleep(500);
+
             //终止线程
             //thread.Abort();
-            thread.Interrupt();
+            Console.WriteLine("\nInterupt第二个线程");
+            thread2.Interrupt();
+            thread2.Join();
             Console.WriteLine("主线程结束");
 
             //等待线程结束
