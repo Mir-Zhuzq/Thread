@@ -40,7 +40,7 @@ namespace AppThreadDemo
             Thread thread = new Thread(entry);
 
             //终止线程
-            Console.WriteLine("终止线程");
+            //Console.WriteLine("终止线程");
             //thread.Abort();
 
 
@@ -53,11 +53,13 @@ namespace AppThreadDemo
             Thread.Sleep(500);
 
             //终止线程
-            thread.Abort();
+            //thread.Abort();
+            thread.Interrupt();
+            Console.WriteLine("主线程结束");
 
             //等待线程结束
-            thread.Join();
-            Console.WriteLine("主线程结束");
+            //thread.Join();
+            //Console.WriteLine("主线程结束");
         }
 
         static void Main(string[] args)
