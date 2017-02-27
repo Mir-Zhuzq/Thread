@@ -16,7 +16,7 @@ namespace AppThreadDemo
                 Console.WriteLine("\n 执行threadMethod 的线程的代码是：{0}", Thread.CurrentThread.GetHashCode().ToString());
                 //休眠1秒
                 Thread.Sleep(1000);
-                
+
             }
             catch (Exception ex)
             {
@@ -27,7 +27,6 @@ namespace AppThreadDemo
                 Console.WriteLine("threadMethod执行finally块");
             }
             Console.WriteLine("threadMethod执行结束");
-            
         }
 
         static public void demoThreadCreate()
@@ -39,13 +38,11 @@ namespace AppThreadDemo
 
             //生成线程实例
             Thread thread = new Thread(entry);
-            Thread thread2 = new Thread(entry);
-
 
             //终止线程
-            //Console.WriteLine("终止线程");
-            //thread.Abort();
-
+            //interupt终止处于waitsleepjoin状态的线程
+            Console.WriteLine("Interupt线程：");
+            thread.Interrupt();
 
             //启动线程
             Console.WriteLine("\n启动第一个线程");
@@ -55,24 +52,9 @@ namespace AppThreadDemo
             //这里等待0.5s子线程最后打印结束的代码没有时间执行，如果延长等待的时间，两个线程的结束信息均可以打印
             Thread.Sleep(500);
 
-            thread.Abort();
             //等待线程结束
             thread.Join();
-
-            Console.WriteLine("\n启动第二个线程");
-            thread2.Start();
-            Thread.Sleep(500);
-
-            //终止线程
-            //thread.Abort();
-            Console.WriteLine("\nInterupt第二个线程");
-            thread2.Interrupt();
-            thread2.Join();
             Console.WriteLine("主线程结束");
-
-            //等待线程结束
-            //thread.Join();
-            //Console.WriteLine("主线程结束");
         }
 
         static void Main(string[] args)
